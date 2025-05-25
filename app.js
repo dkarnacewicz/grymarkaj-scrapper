@@ -16,11 +16,13 @@ app.get("/scrapper", async (request, response) => {
   const browser = await puppeteer.launch({
     headless: false,
     args: [
-      `--disable-gpu`,
-      `--disable-setuid-sandbox`,
-      `--no-sandbox`,
-      `--no-zygote`,
-      `--disable-dev-shm-usage`,
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+      "--disable-gpu",
+      "--no-zygote",
+      "--single-process",
+      "--disable-extensions",
     ],
   });
   const page = await browser.newPage();
